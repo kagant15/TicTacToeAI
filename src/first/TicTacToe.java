@@ -70,10 +70,4 @@ public class TicTacToe {
 		}
 		return bestMove;
 	}
-	
-	private static void askUser(){
-		View view=new View();
-		move=view.getMove();
-	}
-	
-}
+}//End of TicTacToe Class
