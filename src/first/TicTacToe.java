@@ -4,31 +4,6 @@ import java.util.ArrayList;
 
 
 public class TicTacToe {
-
-	static String move;
-
-	public static void main(String[] args) {
-	
-	//askUser();
-	TicTacToe obj = new TicTacToe();	
-	Board board=new Board();
-	board.placePiece("00", "O");
-//	String aMove=obj.decision(board).getNextMove();
-	
-//	while(!board.isTerminal()){
-//		askUser();
-//		board.placePiece(move, "O");
-//		String aMove=obj.decision(board).getNextMove();
-//		board.placePiece(aMove, "X");
-//	}
-	
-	String aMove=obj.decision(board).getNextMove();
-	System.out.println(aMove);
-	}
-	
-	public TicTacToe(){
-		
-	}
 	
 	public Board decision(Board state){
 		Board v = maxValue(state);
