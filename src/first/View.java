@@ -12,7 +12,6 @@ import org.eclipse.swt.widgets.Monitor;
 import org.eclipse.swt.widgets.Shell;
 
 
-
 public class View {
 	
 	String move;
@@ -35,6 +34,8 @@ public class View {
 		display = new Display();
 		shell = new Shell(display);
 		shell.setSize(260, 280);
+		shell.setText("Tic-Tac-Toe");
+		shell.setLayout(null);
 		
 		//Set position of display to center on screen
 		Monitor primary = display.getPrimaryMonitor();
@@ -44,10 +45,7 @@ public class View {
 		int y = bounds.y + (bounds.height - rect.width)/2;
 		shell.setLocation(x,y);
 		
-		
-		shell.setText("Tic-Tac-Toe");
-		shell.setLayout(null);
-		
+		//Draws the lines on the display
 		Label vertLine1 = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		vertLine1.setBounds(90, 30, 2, 180);
 		
@@ -63,21 +61,7 @@ public class View {
 		message = new Label(shell, SWT.NONE);
 		message.setBounds(5, 220, 250, 30);
 		
-		createBoxes();
-		
-
-		shell.open();
-		while(!shell.isDisposed())
-			if (!display.readAndDispatch())
-				display.sleep();
-			display.dispose();
-		
-		
-	}
-	
-public void createBoxes(){
-		
-		
+		//creates the buttons and their listeners
 		for(int row=0; row<3; row++){
 			for(int column=0; column<3; column++){
 				final int permRow=row;
@@ -121,6 +105,15 @@ public void createBoxes(){
 				 };
 				 boxes[row][column].addListener(SWT.Selection, listener);
 			}
-		}
+		}//end of for loop
+		
+
+		shell.open();
+		while(!shell.isDisposed())
+			if (!display.readAndDispatch())
+				display.sleep();
+			display.dispose();
+			
 	}
+	
 }//End of View class
